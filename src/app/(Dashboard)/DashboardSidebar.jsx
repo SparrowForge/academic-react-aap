@@ -9,7 +9,7 @@ const DashboardSidebar = () => {
     };
 
     return (
-        <div className={`bg-[#1f1e1e] text-[#FFFFFFB2] flex flex-col h-screen transition-all duration-300 border-r border-[#333333] ${isSidebarOpen ? 'w-80 md:w-96' : 'w-20'}`}>
+        <div className={`bg-[#1f1e1e] text-[#FFFFFFB2] flex flex-col h-screen transition-all duration-300 border-r border-[#333333] ${isSidebarOpen ? 'w-64' : 'w-20'}`}>
           
             <div className="flex items-center justify-between gap-2 h-20 px-4 border-b border-[#333333]">
                 <h1 className={`text-xl pl-2 font-bold transition-all text-white leading-2 ${isSidebarOpen ? 'block' : 'hidden'}`}>
