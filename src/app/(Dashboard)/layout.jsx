@@ -1,5 +1,6 @@
-import DashboardNavbar from "./DashboardNavbar";
-import DashboardSidebar from "./DashboardSidebar";
+import DashboardNavbar from "./components/DashboardNavbar";
+import DashboardSidebar from "./components/DashboardSidebar";
+
 
 
 

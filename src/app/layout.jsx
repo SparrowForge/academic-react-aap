@@ -1,7 +1,5 @@
 
 import "./globals.css";
-import DashboardNavbar from "./(Dashboard)/DashboardNavbar";
-import DashboardSidebar from "./(Dashboard)/DashboardSidebar";
 import Providers from "./lib/Providers";
 
 
@@ -16,14 +14,9 @@ export default function RootLayout({ children }) {
       <body
         className={`antialiased`}
       >  <Providers>
-          <div className="flex bg-white" >
-          <DashboardSidebar />
-          <div className="flex flex-col w-full">
-            <DashboardNavbar />
+         
             {children}
-          </div>
-
-        </div>
+          
      </Providers>
       </body>
     </html>

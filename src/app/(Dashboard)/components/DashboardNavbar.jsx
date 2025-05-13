@@ -17,9 +17,9 @@ const DashboardNavbar = () => {
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+           strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             className="lucide lucide-search absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-[#333333]/80"
         >
             <circle cx="11" cy="11" r="8"></circle>
@@ -49,9 +49,9 @@ const DashboardNavbar = () => {
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                       strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                         className="lucide lucide-languages h-6 w-6">
                         <path d="m5 8 6 6"></path>
                         <path d="m4 14 6-6 2-3"></path>
@@ -74,9 +74,9 @@ const DashboardNavbar = () => {
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                       strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                         className="lucide lucide-bell h-5 w-5">
                         <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path>
                         <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path>
