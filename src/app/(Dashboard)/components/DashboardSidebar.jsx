@@ -157,7 +157,7 @@ const DashboardSidebar = () => {
     const toggleSidebar = () => setOpen(!open);
 
     return (
-                <div className={`bg-[#1f1e1e] text-[#FFFFFFB2] flex flex-col transition-all border-r border-[#333333] ${open ? "w-64" : "w-20"}`}>
+                <div className={`bg-[#1f1e1e] text-[#FFFFFFB2]  flex flex-col transition-all border-r border-[#333333] ${open ? "w-64" : "w-20"}`}>
             {/* Header */}
             <div className="flex items-center justify-between h-20 px-4 border-b border-[#333333]">
                 {open && (

@@ -40,8 +40,8 @@ const FeePage = () => {
         <div className="md:p-6 pt-0">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-6">
             {/* Tabs */}
-            <div className="w-fit md:h-9 border border-[#333333]/10  rounded-md bg-[#333333]/5 p-2 md:p-0">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4  rounded-md px-1 text-[#333333]/70">
+            <div className="w-fit md:h-10 border border-[#333333]/10  rounded-md bg-[#333333]/5 p-2 md:p-0">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4  rounded-md p-1 text-[#333333]/70">
                 {tabs.map((tab, idx) => (
                   <button
                     key={idx}

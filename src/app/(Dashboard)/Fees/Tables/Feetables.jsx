@@ -17,7 +17,7 @@ const Feetables = ({ filterType }) => {
 
   return (
     <div className="overflow-x-auto">
-      <table className="w-full text-[16px] text-left border border-[#333333]/20">
+      <table className="w-full text-[14px] text-left border border-[#333333]/20">
         <thead className="text-[#333333]/70 bg-gray-100">
           <tr>
             <th className="px-6 py-3">ID</th>
@@ -30,7 +30,7 @@ const Feetables = ({ filterType }) => {
         </thead>
         <tbody>
           {filteredData.map(({ id, structure, type, amount, status }) => (
-            <tr key={id} className="text-start hover:bg-gray-50">
+            <tr key={id} className="text-start hover:bg-gray-50 text-[12px]">
               <td className="px-6 py-3">{id}</td>
               <td className="px-6 py-3">{structure}</td>
               <td className="px-6 py-3">{type}</td>

@@ -6,6 +6,10 @@
 *{
   font-family: Poppins, sans-serif;
 }
+
+.text-orange {
+  color: #FC4F00;
+}
 /* 
 :root {
   --background: #ffffff;
