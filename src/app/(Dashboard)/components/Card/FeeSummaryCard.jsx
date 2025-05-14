@@ -79,20 +79,21 @@ const FeeSummaryCard = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
       {data.map((item) => (
-        <div key={item.id} className="stats-card flex items-start bg-[#ffffffb2] shadow-xl border-l-8 border-[#FC4F00] py-6 rounded-2xl ">
+        <div key={item.id} className="hover:-translate-y-1 transition-transform duration-300 flex items-start bg-[#ffffffb2] shadow-xl border-l-[6px] border-[#FC4F00] py-6 rounded-lg ">
           <div className="flex-1 px-6">
             <h3 className="text-sm font-medium text-muted-foreground">
               {item.title}
             </h3>
             <div className="text-2xl font-bold mt-1">{item.number}</div>
             <div className="flex items-center mt-1">
-              <span className="text-green-500">{item.state.split(" ")[0]}</span>
-              <span className="text-xs text-muted-foreground ml-1">
-                {item.state.split(" ").slice(1).join(" ")}
+              <span className="text-green-500 mb-1">{item.state.split(" ")[0]}</span>
+              <span className="text-green-500 ml-1  ">{item.state.split(" ")[1]}</span>
+              <span className="text-[#333333]/70 ml-1">
+                {item.state.split(" ").slice(2).join(" ")}
               </span>
             </div>
           </div>
-          <div className="rounded-full bg-[#FC4F00]/10 p-2 mr-10 text-#FC4F00">{item.icon}</div>
+          <div className="rounded-full bg-[#FC4F00]/10 p-2 mr-10 text-[#FC4F00]">{item.icon}</div>
         </div>
       ))}
     </div>

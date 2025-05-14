@@ -1,88 +1,61 @@
-import React from 'react';
+"use client"
+import React, { useEffect, useState } from 'react';
 
-const Feetables = () => {
-    return (
-        <div className="overflow-x-auto rounded-md border border-[#333333]/10">
+const Feetables = ({ filterType }) => {
+  const [feeData, setFeeData] = useState([]);
 
-            <table className="w-full border border-[#333333]/90 text-md ">
-                <thead className=" ">
-                    <tr className='text-[#333333]/50 text-center'>
-                        <th className=" px-4 py-2 border border-[#333333]/20 ">ID</th>
-                        <th className=" px-4 py-2 border border-[#333333]/20 ">Name</th>
-                        <th className=" px-4 py-2 border border-[#333333]/20 ">Type</th>
-                        <th className=" px-4 py-2 border border-[#333333]/20 ">Amount</th>
-                        <th className=" px-4 py-2 border border-[#333333]/20 ">Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr className="hover:bg-gray-50">
-                        <td className="px-4 py-2 border border-[#333333]/20 ">1</td>
-                        <td className="px-4 py-2 border border-[#333333]/20 ">BSc Computer Science</td>
-                        <td className="px-4 py-2 border border-[#333333]/20 ">Degree</td>
-                        <td className="px-4 py-2 border border-[#333333]/20 ">₹50,000</td>
-                        <td className="px-4 py-2 border border-[#333333]/20">
-                            <button className='bg-green-600 text-white shadow-sm  rounded-full px-4 py-1'>Active</button>
-                        </td>
-                    </tr>
-                    <tr className="hover:bg-gray-50">
-                        <td className="px-4 py-2 border border-[#333333]/20 ">2</td>
-                        <td className="px-4 py-2 border border-[#333333]/20 ">Hostel Fees</td>
-                        <td className="px-4 py-2 border border-[#333333]/20 ">Residence</td>
-                        <td className="px-4 py-2 border border-[#333333]/20 ">₹25,000</td>
-                        <td className="px-4 py-2 border border-[#333333]/20  ">
-                            <button className='bg-green-600 text-white shadow-sm  rounded-full px-4 py-1'>Active</button>
-                        </td>
-                    </tr>
-                    <tr className="hover:bg-gray-50">
-                        <td className="px-4 py-2 border border-[#333333]/20 ">2</td>
-                        <td className="px-4 py-2 border border-[#333333]/20 ">Hostel Fees</td>
-                        <td className="px-4 py-2 border border-[#333333]/20 ">Residence</td>
-                        <td className="px-4 py-2 border border-[#333333]/20 ">₹25,000</td>
-                        <td className="px-4 py-2 border border-[#333333]/20  ">
-                            <button className='bg-green-600 text-white shadow-sm  rounded-full px-4 py-1'>Active</button>
-                        </td>
-                    </tr>
-                    <tr className="hover:bg-gray-50">
-                        <td className="px-4 py-2 border border-[#333333]/20 ">2</td>
-                        <td className="px-4 py-2 border border-[#333333]/20 ">Hostel Fees</td>
-                        <td className="px-4 py-2 border border-[#333333]/20 ">Residence</td>
-                        <td className="px-4 py-2 border border-[#333333]/20 ">₹25,000</td>
-                        <td className="px-4 py-2 border border-[#333333]/20  ">
-                            <button className='bg-green-600 text-white shadow-sm  rounded-full px-4 py-1'>Active</button>
-                        </td>
-                    </tr>
-                    <tr className="hover:bg-gray-50">
-                        <td className="px-4 py-2 border border-[#333333]/20 ">2</td>
-                        <td className="px-4 py-2 border border-[#333333]/20 ">Hostel Fees</td>
-                        <td className="px-4 py-2 border border-[#333333]/20 ">Residence</td>
-                        <td className="px-4 py-2 border border-[#333333]/20 ">₹25,000</td>
-                        <td className="px-4 py-2 border border-[#333333]/20  ">
-                            <button className='bg-green-600 text-white shadow-sm  rounded-full px-4 py-1'>Active</button>
-                        </td>
-                    </tr>
-                    <tr className="hover:bg-gray-50">
-                        <td className="px-4 py-2 border border-[#333333]/20 ">2</td>
-                        <td className="px-4 py-2 border border-[#333333]/20 ">Hostel Fees</td>
-                        <td className="px-4 py-2 border border-[#333333]/20 ">Residence</td>
-                        <td className="px-4 py-2 border border-[#333333]/20 ">₹25,000</td>
-                        <td className="px-4 py-2 border border-[#333333]/20  ">
-                            <button className='bg-green-600 text-white shadow-sm  rounded-full px-4 py-1'>Active</button>
-                        </td>
-                    </tr>
-                    <tr className="hover:bg-gray-50">
-                        <td className="px-4 py-2 border border-[#333333]/20 ">3</td>
-                        <td className="px-4 py-2 border border-[#333333]/20 ">Lab Fees</td>
-                        <td className="px-4 py-2 border border-[#333333]/20 ">Additional</td>
-                        <td className="px-4 py-2 border border-[#333333]/20 ">₹5,000</td>
-                        <td className="px-4 py-2 border border-[#333333]/20  ">
+  useEffect(() => {
+    fetch('/feeData.json')
+      .then((res) => res.json())
+      .then((data) => setFeeData(data))
+      .catch((err) => console.error("Failed to fetch fee data:", err));
+  }, []);
 
-                            <button className='bg-[#ffffff] shadow-sm border border-[#333333]/20 rounded-full px-4 py-1'>Draft</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    );
+  // Filter for menu
+  const filteredData = filterType
+    ? feeData.filter((item) => item.type === filterType)
+    : feeData;
+
+  return (
+    <div className="overflow-x-auto">
+      <table className="w-full text-[16px] text-left border border-[#333333]/20">
+        <thead className="text-[#333333]/70 bg-gray-100">
+          <tr>
+            <th className="px-6 py-3">ID</th>
+            <th className="px-6 py-3">Fee Structure</th>
+            <th className="px-6 py-3">Type</th>
+            <th className="px-6 py-3">Amount</th>
+            <th className="px-6 py-3">Status</th>
+            <th className="px-6 py-3">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {filteredData.map(({ id, structure, type, amount, status }) => (
+            <tr key={id} className="text-start hover:bg-gray-50">
+              <td className="px-6 py-3">{id}</td>
+              <td className="px-6 py-3">{structure}</td>
+              <td className="px-6 py-3">{type}</td>
+              <td className="px-6 py-3">{amount}</td>
+              <td className="px-6 py-3">
+                <span
+                  className={`inline-block rounded-full px-3 py-1 text-xs font-medium ${
+                    status === "Draft"
+                      ? "bg-gray-100 text-black border border-[#333333]/20"
+                      : "bg-green-500 text-white"
+                  }`}
+                >
+                  {status}
+                </span>
+              </td>
+              <td className="px-6 py-3">
+                <button className="text-sm cursor-pointer">Edit</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
 };
 
 export default Feetables;

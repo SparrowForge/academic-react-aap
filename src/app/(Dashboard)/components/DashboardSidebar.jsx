@@ -47,7 +47,7 @@ const DashboardSidebar = () => {
              
                     <a
                         className="flex items-center gap-3 rounded-md px-3 py-2  transition-colors hover:bg-[#333333] hover:text-white active:bg-[#333333] active:text-white "
-                        href="/dashboard"
+                        href="/"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"

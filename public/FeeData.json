@@ -1,0 +1,50 @@
+[
+  {
+    "id": "FEE001",
+    "structure": "Computer Science B.Tech 2023",
+    "type": "Degree",
+    "amount": "₹120,000",
+    "paymentTerm": "Semester",
+    "status": "Active"
+  },
+  {
+    "id": "FEE002",
+    "structure": "MBA Executive Program 2023",
+    "type": "Degree",
+    "amount": "₹180,000",
+    "paymentTerm": "Yearly",
+    "status": "Active"
+  },
+  {
+    "id": "FEE003",
+    "structure": "Women's Hostel Fee",
+    "type": "Residence",
+    "amount": "₹45,000",
+    "paymentTerm": "Semester",
+    "status": "Active"
+  },
+  {
+    "id": "FEE004",
+    "structure": "Laboratory Fee - Science Dept",
+    "type": "Additional",
+    "amount": "₹15,000",
+    "paymentTerm": "One-time",
+    "status": "Active"
+  },
+  {
+    "id": "FEE005",
+    "structure": "Transport Fee - Route A",
+    "type": "Additional",
+    "amount": "₹12,000",
+    "paymentTerm": "Monthly",
+    "status": "Active"
+  },
+  {
+    "id": "FEE006",
+    "structure": "Arts & Humanities BA 2023",
+    "type": "Degree",
+    "amount": "₹85,000",
+    "paymentTerm": "Semester",
+    "status": "Draft"
+  }
+]
