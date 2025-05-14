@@ -1,11 +1,10 @@
 "use client"
 import React, { useEffect, useState } from 'react';
-
 const Feetables = ({ filterType }) => {
   const [feeData, setFeeData] = useState([]);
 
   useEffect(() => {
-    fetch('/feeData.json')
+    fetch('/FeeData.json')
       .then((res) => res.json())
       .then((data) => setFeeData(data))
       .catch((err) => console.error("Failed to fetch fee data:", err));

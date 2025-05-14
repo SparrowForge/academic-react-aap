@@ -1,3 +1,4 @@
+"use client"
 import React from 'react';
 import SummaryCard from './Card/SummaryCard';
 import TodaysShedule from './TodaysShedule';
@@ -5,7 +6,7 @@ import Announcement from './Announcement';
 
 const Dashboard = () => {
     return (
-        <div className="flex-1 overflow-y-auto p-8">
+        <div className="flex-1 overflow-auto p-4 md:p-8">
             <div className="max-w-7xl mx-auto">
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
                     <div>
@@ -13,7 +14,7 @@ const Dashboard = () => {
                         <p className="text-[#333333]/70">Here's what's happening today.</p>
                     </div>
                     <div className="flex items-center bg-white rounded-md border border-[#333333]/10 p-2 gap-2 mt-4 md:mt-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
                             className="lucide lucide-calendar h-4 w-4 text-[#FC4F00]">
                             <path d="M8 2v4"></path><path d="M16 2v4">
                             </path>

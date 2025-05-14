@@ -8,7 +8,7 @@ const FeePage = () => {
 
   const tabs = ["All Structures", "Degree Fees", "Residence Fees", "Additional Fees"];
 
-  // Mapping from tab names to type values in data
+ 
   const typeMap = {
     "All Structures": "",
     "Degree Fees": "Degree",
@@ -37,17 +37,17 @@ const FeePage = () => {
           </p>
         </div>
 
-        <div className="p-6 pt-0">
-          <div className="flex justify-between items-center gap-6 mb-6">
+        <div className="md:p-6 pt-0">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-6">
             {/* Tabs */}
-            <div className="w-fit border border-[#333333]/10 px-4 py-1 rounded-md bg-[#333333]/10">
-              <div className="inline-flex h-12 items-center justify-center rounded-md bg-muted p-1 text-[#333333]/70">
+            <div className="w-fit md:h-9 border border-[#333333]/10  rounded-md bg-[#333333]/5 p-2 md:p-0">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4  rounded-md px-1 text-[#333333]/70">
                 {tabs.map((tab, idx) => (
                   <button
                     key={idx}
                     type="button"
                     onClick={() => setActiveTab(tab)}
-                    className={`inline-flex items-center justify-center whitespace-nowrap rounded-sm px-4 py-2 text-sm font-medium transition-all ${
+                    className={` items-center justify-center whitespace-nowrap rounded-sm px-2 py-1 text-sm font-medium transition-all ${
                       activeTab === tab
                         ? "bg-white text-black shadow-sm"
                         : "text-[#333333]/70"
@@ -60,7 +60,7 @@ const FeePage = () => {
             </div>
 
             {/* Search + Button */}
-            <div className="flex items-center gap-3">
+            <div className="flex flex-col-reverse md:flex-row items-center gap-3 mt-2 md:mt-0">
               <div className="relative">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -79,11 +79,11 @@ const FeePage = () => {
                 </svg>
                 <input
                   type="search"
-                  className="flex h-12 rounded-md border border-[#333333]/10 bg-[#ffffffb2] px-3 py-2 text-base ring-offset-background pl-9 w-[250px] placeholder:text-[#333333]/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                  className="flex h-10 rounded-md border border-[#333333]/10 bg-[#ffffffb2] px-3 py-2 text-base ring-offset-background pl-9 w-[250px] placeholder:text-[#333333]/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                   placeholder="Search fee structures..."
                 />
               </div>
-              <button className="inline-flex items-center justify-center gap-2 text-lg font-medium h-12 px-4 py-2 rounded-md bg-[#FC4F00] text-white hover:bg-uni-orange/90">
+              <button className="inline-flex items-center justify-center gap-2 text-md font-medium h-10 px-4 py-2 rounded-md bg-[#FC4F00] text-white hover:bg-uni-orange/90">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
