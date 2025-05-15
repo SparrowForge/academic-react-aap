@@ -3,7 +3,8 @@
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-
+import { FaChevronUp, FaChevronDown } from "react-icons/fa";
+import { GoDotFill } from "react-icons/go";
 // Navigation items and SVG icons
 const navItems = [
     {
@@ -15,6 +16,10 @@ const navItems = [
                 <path d="M3 10a2 2 0 0 1 .7-1.5l7-6a2 2 0 0 1 2.6 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
             </svg>
         ),
+        submenu: [
+            { label: "Overview", href: "/Dashboard/overview" },
+            { label: "Stats", href: "/Dashboard/stats" }
+        ]
     },
     {
         label: "Profile",
@@ -25,6 +30,10 @@ const navItems = [
                 <circle cx="12" cy="7" r="4" />
             </svg>
         ),
+        submenu: [
+            { label: "Edit Profile", href: "/Profile/edit" },
+            { label: "Account Settings", href: "/Profile/settings" }
+        ]
     },
     {
         label: "Courses",
@@ -34,6 +43,10 @@ const navItems = [
                 <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20" />
             </svg>
         ),
+        submenu: [
+            { label: "My Courses", href: "/Courses/my-courses" },
+            { label: "Enroll", href: "/Courses/enroll" }
+        ]
     },
     {
         label: "Assignments",
@@ -45,6 +58,10 @@ const navItems = [
                 <path d="m9 14 2 2 4-4" />
             </svg>
         ),
+        submenu: [
+            { label: "Upcoming", href: "/Assignments/upcoming" },
+            { label: "Submitted", href: "/Assignments/submitted" }
+        ]
     },
     {
         label: "Exams",
@@ -56,6 +73,10 @@ const navItems = [
                 <path d="M10 9H8M16 13H8M16 17H8" />
             </svg>
         ),
+        submenu: [
+            { label: "Schedule", href: "/Exams/schedule" },
+            { label: "Results", href: "/Exams/results" }
+        ]
     },
     {
         label: "Attendance",
@@ -67,6 +88,10 @@ const navItems = [
                 <path d="M3 10h18" />
             </svg>
         ),
+        submenu: [
+            { label: "Daily Report", href: "/Attendance/daily" },
+            { label: "Monthly Summary", href: "/Attendance/monthly" }
+        ]
     },
     {
         label: "Fees",
@@ -85,6 +110,10 @@ const navItems = [
                 <path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path>
             </svg>
         ),
+        submenu: [
+            { label: "Pay Fees", href: "/Fees/pay" },
+            { label: "History", href: "/Fees/history" }
+        ]
     },
     {
         label: "Results",
@@ -106,6 +135,10 @@ const navItems = [
                 <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
             </svg>
         ),
+        submenu: [
+            { label: "Latest", href: "/Results/latest" },
+            { label: "Download", href: "/Results/download" }
+        ]
     },
     {
         label: "Leave Requests",
@@ -126,6 +159,10 @@ const navItems = [
                 <rect width="18" height="18" x="3" y="4" rx="2"></rect>
                 <path d="M3 10h18"></path></svg>
         ),
+        submenu: [
+            { label: "Apply Leave", href: "/LeaveRequests/apply" },
+            { label: "History", href: "/LeaveRequests/history" }
+        ]
     },
     {
         label: "Notifications",
@@ -137,6 +174,10 @@ const navItems = [
                 viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-bell"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>
         ),
+        submenu: [
+            { label: "All", href: "/Notifications/all" },
+            { label: "Settings", href: "/Notifications/settings" }
+        ]
     },
     {
         label: "Help & Support",
@@ -146,6 +187,10 @@ const navItems = [
                 width="24"
                 height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-circle-help"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><path d="M12 17h.01"></path></svg>
         ),
+        submenu: [
+            { label: "FAQ", href: "/Help&Support/faq" },
+            { label: "Contact", href: "/Help&Support/contact" }
+        ]
     }
 
 ];
@@ -153,11 +198,15 @@ const navItems = [
 const DashboardSidebar = () => {
     const pathname = usePathname();
     const [open, setOpen] = useState(true);
+    const [openSubmenu, setOpenSubmenu] = useState(null);
 
     const toggleSidebar = () => setOpen(!open);
+    const toggleSubmenu = (label) => {
+        setOpenSubmenu((prev) => (prev === label ? null : label));
+    };
 
     return (
-                <div className={`bg-[#1f1e1e] text-[#FFFFFFB2]  flex flex-col transition-all border-r border-[#333333] ${open ? "w-64" : "w-20"}`}>
+        <div className={`bg-[#1f1e1e] text-[#FFFFFFB2]  flex flex-col transition-all border-r border-[#333333] ${open ? "w-64" : "w-20"} min-h-screen`}>
             {/* Header */}
             <div className="flex items-center justify-between h-20 px-4 border-b border-[#333333]">
                 {open && (
@@ -178,22 +227,62 @@ const DashboardSidebar = () => {
             </div>
 
             {/* Navigation */}
-            <nav className="flex-grow flex flex-col px-4 py-4 space-y-1 text-sm">
-                {navItems.map((item) => {
-                    const isActive = pathname === item.href;
-                    return (
-                        <Link
-                            key={item.href}
-                            href={item.href}
-                            className={`flex items-center gap-3 px-3 py-2 rounded-md transition-colors ${isActive ? "bg-[#333333] text-white" : "hover:bg-[#333333] hover:text-white"
-                                }`}
-                        >
-                            {item.icon}
-                            {open && <span>{item.label}</span>}
-                        </Link>
-                    );
-                })}
+            <nav className="flex-1 overflow-y-auto">
+                <ul className="p-2 space-y-1">
+                    {navItems.map((item) => {
+                        const isActive = pathname === item.href || pathname.startsWith(item.href + "/");
+
+                        const isSubmenuOpen = openSubmenu === item.label;
+
+                        return (
+                            <li key={item.label}>
+                                {/* <div className="flex items-center justify-between px-4 py-2 rounded hover:bg-[#2d2c2c] cursor-pointer"> */}
+                                <div className={`flex justify-between items-center gap-3 px-3 py-2 rounded-md transition-colors ${isActive ? "bg-[#333333] text-white" : "hover:bg-[#333333] hover:text-white"
+                                    }`}>
+                                    <Link
+                                        key={item.href}
+                                        href={item.href}
+                                        className="flex items-center gap-3"
+                                    // className={`flex items-center gap-3 px-3 py-2 rounded-md transition-colors ${isActive ? "bg-[#333333] text-white" : "hover:bg-[#333333] hover:text-white"
+                                    //     }`}
+                                    >
+                                        {item.icon}
+                                        {open && <span>{item.label}</span>}
+                                    </Link>
+
+                                    {item.submenu && open && (
+                                        <button onClick={() => toggleSubmenu(item.label)} className="text-white text-[10px]">
+                                            {isSubmenuOpen ? <FaChevronUp /> : <FaChevronDown />}
+                                        </button>
+                                    )}
+                                </div>
+
+                                {/* Submenu */}
+                                {isSubmenuOpen && item.submenu && (
+                                    <ul className="pl-12 space-y-1 mt-2">
+                                        {item.submenu.map((subItem) => {
+                                            const isActiveSubmenu = pathname === subItem.href || pathname.startsWith(subItem.href + "/");
+                                            return (
+                                                <li key={subItem.label}>
+                                                    <Link
+                                                        href={subItem.href}
+                                                        className={`flex items-center gap-1 px-3 py-2 text-[13px] rounded-md transition-colors ${isActiveSubmenu ? "bg-[#333333] text-white" : "hover:bg-[#333333] hover:text-white"
+                                                            }`}
+                                                    >
+                                                       <GoDotFill />
+                                                        {subItem.label}
+                                                    </Link>
+                                                </li>
+                                            )
+                                        })}
+                                    </ul>
+                                )}
+                            </li>
+                        );
+                    })}
+                </ul>
             </nav>
+           
 
             {/* Logout Button */}
             <div className="px-4 py-4 border-t border-[#333333]">
