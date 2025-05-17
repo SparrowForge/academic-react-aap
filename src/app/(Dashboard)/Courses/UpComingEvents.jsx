@@ -26,7 +26,7 @@ const eventsData = [
 
 const badgeStyles = {
   blue: 'bg-blue-50 text-blue-500 border-blue-200',
-  orange: 'bg-orange-50 text-orange-500 border-orange-200',
+  orange: 'bg-orange-50 text-orangeCustom-500 border-orange-200',
   green: 'bg-green-50 text-green-500 border-green-200',
 };
 

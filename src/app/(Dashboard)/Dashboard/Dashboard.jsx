@@ -1,8 +1,8 @@
 "use client"
 import React from 'react';
-import SummaryCard from './Card/SummaryCard';
-import TodaysShedule from './TodaysShedule';
-import Announcement from './Announcement';
+import SummaryCard from '../components/Card/SummaryCard';
+import Announcement from '../components/Announcement';
+import TodaysShedule from '../components/TodaysShedule';
 
 const Dashboard = () => {
     return (

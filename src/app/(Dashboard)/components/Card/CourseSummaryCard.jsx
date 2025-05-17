@@ -38,7 +38,7 @@ const CourseSummaryCard = () => {
       value: "3",
       status: {
         text: "Due Soon",
-        className: "bg-orange-500/10 text-orange-500"
+        className: "bg-orange-500/10 text-orangeCustom-500"
       },
       buttonLabel: "View Courses",
       icon: (

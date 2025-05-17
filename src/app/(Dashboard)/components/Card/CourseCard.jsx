@@ -77,7 +77,7 @@ const CourseCard = () => {
               <div
                 className={`rounded p-2 ${course.assignmentsDue === 0
                     ? 'bg-gray-100 text-gray-500'
-                    : 'bg-orange-50 text-orange-500'
+                    : 'bg-orange-50 text-orangeCustom-500'
                   }`}
               >
                 <p className="text-muted-foreground">Assignments:</p>

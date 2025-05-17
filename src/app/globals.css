@@ -7,6 +7,14 @@
   font-family: Poppins, sans-serif;
 }
 
+.border-orange {
+  color: #FC4F00;
+}
+
+.bg-orange {
+  background-color: #FC4F00;
+}
+
 .text-orange {
   color: #FC4F00;
 }
