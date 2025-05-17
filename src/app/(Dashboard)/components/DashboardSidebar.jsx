@@ -205,10 +205,15 @@ const DashboardSidebar = () => {
         setOpenSubmenu((prev) => (prev === label ? null : label));
     };
 
+    const sidebarWidth = open ? "md:w-64" : "md:w-20";
     return (
-        <div className={`bg-[#1f1e1e] text-[#FFFFFFB2]  flex flex-col transition-all border-r border-[#333333] ${open ? "w-64" : "w-20"} min-h-screen`}>
+
+           <div
+    className={`bg-[#1f1e1e] text-[#FFFFFFB2] min-h-screen flex flex-col transition-all border-r border-[#333333] w-20 ${sidebarWidth}`}
+  >
+   
             {/* Header */}
-            <div className="flex items-center justify-between h-20 px-4 border-b border-[#333333]">
+            <div className="hidden md:flex items-center justify-between h-20 px-4 border-b border-[#333333]">
                 {open && (
                     <h1 className="text-xl font-bold text-white">
                         <span className="text-[#FC4F00]">A</span>cademic
@@ -216,7 +221,7 @@ const DashboardSidebar = () => {
                 )}
                 <button
                     onClick={toggleSidebar}
-                    className="text-white hover:text-[#FFFFFFB2] hover:bg-[#333333] h-11 w-11 rounded-full ml-auto flex items-center justify-center"
+                    className={`text-white hover:text-[#FFFFFFB2] h-11 w-11 flex items-center justify-center ${open ? "pl-6" : "pl-0"}`}
                 >
                     <svg width="20" height="20" stroke="currentColor" strokeWidth="2" fill="none">
                         <line x1="4" x2="20" y1="12" y2="12" />
@@ -224,6 +229,13 @@ const DashboardSidebar = () => {
                         <line x1="4" x2="20" y1="18" y2="18" />
                     </svg>
                 </button>
+            </div>
+            <div className="flex md:hidden items-center justify-between h-16  px-2 border-b border-[#333333]">
+             
+                    <h1 className="text-sm font-semibold text-white">
+                        <span className="text-[#FC4F00]">A</span>cademic
+                    </h1>
+             
             </div>
 
             {/* Navigation */}
@@ -236,21 +248,21 @@ const DashboardSidebar = () => {
 
                         return (
                             <li key={item.label}>
-                                {/* <div className="flex items-center justify-between px-4 py-2 rounded hover:bg-[#2d2c2c] cursor-pointer"> */}
-                                <div className={`flex justify-between items-center gap-3 px-3 py-2 rounded-md transition-colors ${isActive ? "bg-[#333333] text-white" : "hover:bg-[#333333] hover:text-white"
+                                <div className={`flex justify-between items-center gap-1 px-3 py-2 rounded-md transition-colors ${isActive ? "bg-[#333333] text-white" : "hover:bg-[#333333] hover:text-white"
                                     }`}>
                                     <Link
                                         key={item.href}
                                         href={item.href}
-                                        className="flex items-center gap-3"
-                                    // className={`flex items-center gap-3 px-3 py-2 rounded-md transition-colors ${isActive ? "bg-[#333333] text-white" : "hover:bg-[#333333] hover:text-white"
-                                    //     }`}
+                                        className={`flex items-center ${open ? "gap-3" :"gap-0 md:gap-1" }`}
+                                    
                                     >
-                                        {item.icon}
-                                        {open && <span>{item.label}</span>}
+                                        <h1 title={item.label}>{item.icon}</h1>
+                                        <div className="hidden md:flex">
+                                            {open && <span>{item.label}</span>}
+                                        </div>
                                     </Link>
 
-                                    {item.submenu && open && (
+                                    {item.submenu && (
                                         <button onClick={() => toggleSubmenu(item.label)} className="text-white text-[10px]">
                                             {isSubmenuOpen ? <FaChevronUp /> : <FaChevronDown />}
                                         </button>
@@ -259,7 +271,7 @@ const DashboardSidebar = () => {
 
                                 {/* Submenu */}
                                 {isSubmenuOpen && item.submenu && (
-                                    <ul className="pl-12 space-y-1 mt-2">
+                                    <ul className="pl-2 space-y-1 mt-2">
                                         {item.submenu.map((subItem) => {
                                             const isActiveSubmenu = pathname === subItem.href || pathname.startsWith(subItem.href + "/");
                                             return (
@@ -269,8 +281,11 @@ const DashboardSidebar = () => {
                                                         className={`flex items-center gap-1 px-3 py-2 text-[13px] rounded-md transition-colors ${isActiveSubmenu ? "bg-[#333333] text-white" : "hover:bg-[#333333] hover:text-white"
                                                             }`}
                                                     >
-                                                       <GoDotFill />
-                                                        {subItem.label}
+                                                       <GoDotFill title={subItem.label}/>
+                                                       <div className="hidden md:flex">
+                                                        {open && <span>{subItem.label}</span>}
+                                                       </div>
+                                                        
                                                     </Link>
                                                 </li>
                                             )
@@ -285,8 +300,8 @@ const DashboardSidebar = () => {
            
 
             {/* Logout Button */}
-            <div className="px-4 py-4 border-t border-[#333333]">
-                <button className="w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm hover:bg-[#333333] hover:text-white">
+            <div className="px-2 py-4 border-t border-[#333333]">
+                <button className="w-full flex items-center gap-1 px-3 py-2 rounded-md hover:bg-[#333333] hover:text-white">
                     <svg
                         width="24"
                         height="24"
@@ -300,10 +315,14 @@ const DashboardSidebar = () => {
                         <polyline points="16 17 21 12 16 7" />
                         <line x1="21" x2="9" y1="12" y2="12" />
                     </svg>
-                    {open && <span>Logout</span>}
+                   <div className="hidden md:flex">
+                     {open && <span>Logout</span>}
+                   </div>
                 </button>
             </div>
         </div>
+        
+  
 
     );
 };
